@@ -46,6 +46,11 @@ std::pair<std::string, std::vector<value_t>> parse_gate(char buf[]) {
             st += buf[i];
             i++;
         }
+        bool isNegative = false;
+        if (st[0] == '-') {
+            isNegative = true;
+            st = st.erase(0, 1);
+        }
         value_t param = 1;
         if (st[0] == 'p' && st[1] == 'i' && st[2] == '*') {
             param = pi;
@@ -64,6 +69,7 @@ std::pair<std::string, std::vector<value_t>> parse_gate(char buf[]) {
         }
         else
             param = pi / std::stod(st);
+        if (isNegative) param = -param;
         params.push_back(param);
         if (buf[i] == ')')
             break;
@@ -198,7 +204,7 @@ std::unique_ptr<Circuit> parse_circuit(const std::string &filename) {
                 assert(qid.size() == 1);
                 c->addGate(Gate::U2(qid[0], gate.second[0], gate.second[1]));
                 // printf("u1 %d %f\n", qid[0], gate.second[0]);
-            } else if (gate.first == "u3") {
+            } else if (gate.first == "u3" || gate.first == "u") {
                 assert(gate.second.size() == 3);
                 fscanf(f, "%s", buffer);
                 auto qid = parse_qid(buffer);
