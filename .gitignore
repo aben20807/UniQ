@@ -8,3 +8,16 @@ evaluator-preprocess/parameter-files*
 *.profile
 blas
 *.pdf
+
+# C++
+*.o
+*.obj
+*.so
+*.a
+*.lib
+
+# Cmake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
