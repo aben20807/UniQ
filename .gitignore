@@ -15,6 +15,7 @@ blas
 *.so
 *.a
 *.lib
+main
 
 # Cmake
 CMakeFiles/
