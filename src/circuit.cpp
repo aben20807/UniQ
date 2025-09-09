@@ -3,7 +3,9 @@
 #include <cstdio>
 #include <assert.h>
 #include <chrono>
+#if USE_MPI
 #include <mpi.h>
+#endif
 #include <algorithm>
 #include "utils.h"
 #include "compiler.h"

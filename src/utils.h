@@ -12,7 +12,9 @@
 typedef double value_t;
 typedef long long idx_t;
 typedef std::complex<double> cpx;
+#if USE_MPI
 #define MPI_Complex MPI_C_DOUBLE_COMPLEX
+#endif
 #else
 typedef float value_t;
 typedef long long idx_t;
