@@ -6,4 +6,4 @@
 	url = https://github.com/sharkdp/dbg-macro.git
 [submodule "third-party/hptt"]
 	path = third-party/hptt
-	url = git@git.tsinghua.edu.cn:heheda/hptt.git
+	url = https://github.com/springer13/hptt.git
