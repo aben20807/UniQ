@@ -1,3 +1,5 @@
+# Build and run
+
 ```bash
 git clone https://github.com/thu-pacman/UniQ.git --recursive
 cd UniQ/third-party/hptt/ && make # build third-party/hptt/lib/libhptt.a and libhptt.so
@@ -6,3 +8,8 @@ CXX=g++-10 cmake . -DHARDWARE=cpu -DLOCAL_QUBIT_SIZE=14 # The default local qubi
 make
 ./main input.qasm
 ```
+
+## regex for log file
+
+`-----(.*\n)*?.*?circuit=(.*?)\.qasm(.*?\n)*?Logger: Time Cost: (.*?) us` -> `$2, $4`
+
